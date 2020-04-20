@@ -1,15 +1,41 @@
 <template>
     <div class="tw">
-        <div class="first"></div>
-        <div class="second"></div>
-        <div class="third"></div>
-        <div class="button"></div>
+        <div class="first">
+            <p>0/4</p>
+        </div>
+        <div class="second">
+            <p>0/4</p>
+        </div>
+        <div class="third">
+            <p>0/4</p>
+        </div>
+        <buttonToCard>4</buttonToCard>
     </div>
 </template>
 
 <script>
+import {isIphoneX} from '../api/test'
+import buttonToCard from '../components/home/buttonToCard'
+
 export default {
-    
+    name: 'home',
+    data() {
+        return {
+            iphoneX: false
+        }
+    },
+    methods: {
+        thisIsIphoneX () {
+            this.iphoneX = isIphoneX()
+        },
+    },
+    mounted() {
+        this.thisIsIphoneX()
+    },
+    components: {
+        buttonToCard,
+    },
+
 }
 </script>
 <style lang="scss" scoped>
@@ -17,32 +43,45 @@ export default {
     width: 100vw;
     height: 100vh;
     background-size: cover;
-    background-image: url(../assets/imgs/home/homeBg.png);
+    background-image: url(../assets/imgs/home/noneBg.png);
 }
 .first {
-    width: 36vw;
-    height: 37.16vh;
-    background-size: cover;
-    background-image: url(../assets/imgs/home/1.png);
+    margin-top: 30vh;
+    float: left;
+    width: 43vw;
+    height: 40vh;
+    outline: red;
+    p {
+        color: white;
+        font-size: 18px;
+        margin-left: 30vw;
+        margin-top: 1.5vh;
+    }
 }
 .second {
-    width: 49.07vw;
-    height: 37.31vh;
-    background-size: cover;
-    background-image: url(../assets/imgs/home/2.png);
-    transform: rotate(-0.5deg);
+    margin-top: 30vh;
+    float: left;
+    width: 57vw;
+    height: 40vh;
+    outline: red;
+    p {
+        color: white;
+        font-size: 18px;
+        margin-left: 37vw;
+        margin-top: 1vh;
+    }
+}
+.third {
+    float: left;
+    width: 100vw;
+    height: 17vh;
+    outline: red;
+    p {
+        color: white;
+        font-size: 18px;
+        margin-left: 80vw;
+        
+    }
 }
 
-.third {
-    width: 85.3vw;
-    height: 17.38vh;
-    background-size: cover;
-    background-image: url(../assets/imgs/home/3.png);
-}
-.button {
-    width: 28vw;
-    height: 19.7vh;
-    background-size: cover;
-    background-image: url(../assets/imgs/home/button.png);
-}
 </style>
