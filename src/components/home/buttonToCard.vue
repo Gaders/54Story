@@ -9,7 +9,6 @@ export default {
     name: 'buttonToCard',
     data() {
         return {
-
         }
     },
     methods: {
@@ -17,7 +16,6 @@ export default {
             this.$router.push({path: 'card'})
         }
     }
-    
 }
 </script>
 
@@ -25,15 +23,14 @@ export default {
 .button {
     position: absolute;
     top: 77vh;
-    left: 69vw;
-    width: 28vw;
-    height: 19.7vh;
+    left: 120px;
+    width: 210px;
+    height: 238px;
     background-size: cover;
     background-image: url(../../assets/imgs/home/button.png);
     p {
         color: white;
         font-size: 18px;
-        margin-top: 0.5vh;
         margin-left: 16.8vw;
     }
 }
