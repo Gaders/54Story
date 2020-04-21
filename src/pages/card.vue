@@ -9,8 +9,10 @@
                     <span>1</span>
                 </div>
             </div>
-            <div class="button">
-                <p>(5)</p>
+            <div class="button_no"  v-if="numofprize === 0">
+            </div>
+            <div class="button_yes" @click="toPrize" v-else >
+                <p>({{numofprize}})</p>
             </div>
         </div>
     </div>
@@ -27,7 +29,8 @@ export default {
                 "mingzu",
                 "kexue"
             ],
-            cardlist:[]
+            cardlist:[],
+            numofprize:0,
         }
     },
     mounted(){
@@ -35,6 +38,11 @@ export default {
         axios.post(url).then(res=>{
             console.log(res)
         })
+    },
+    methods:{
+        toPrize(){
+            this.$router.push({path: '/luckDraw'})
+        }
     }
 }
 </script>
@@ -42,7 +50,7 @@ export default {
 .card{
     width: 750px;
     height: 1334px;
-    background-image: url(../assets/imgs/card/back.png);
+    background-image: url(../assets/imgs/card/newback.png);
     background-position: center 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -94,18 +102,28 @@ export default {
                 }                  
             }
         }
-        .button{
+        .button_yes , .button_no{
             width: 430px;
             height: 100px;
             margin-top:40px;
             margin-left: 90px;
-            line-height: 115px;
+            line-height: 110px;
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;              
             p{
                 width: 100px;
                 height: 100%;
                 margin-left: 280px;
                 color: #ffffff;
             }
+        }
+        .button_yes{
+            background-image: url(../assets/imgs/card/buttonactive.png);
+        }
+        .button_no{
+            background-image: url(../assets/imgs/card/buttonnoactive.png);
         }
     }  
 }
