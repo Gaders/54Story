@@ -1,4 +1,4 @@
-# stt1
+# 54Story
 
 ## Project setup
 ```
