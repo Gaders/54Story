@@ -30,7 +30,7 @@ export default {
                 "kexue"
             ],
             cardlist:[],
-            numofprize:0,
+            numofprize:1,
         }
     },
     mounted(){
