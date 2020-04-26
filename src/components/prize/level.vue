@@ -15,7 +15,11 @@
         <div class="level_3" v-else-if="level === 3">
             <p>恭喜你！获得</p>
             <div class="show_level"></div>
-        </div>        
+        </div>
+        <div class="level_4" v-else-if="level === 4">
+            <p>恭喜你！获得</p>
+            <div class="show_level"></div>
+        </div>                    
         <div class="buttons">
             <div class="goon"></div>
             <div class="read" @click="toHome"></div>
@@ -45,7 +49,7 @@ export default {
 .level{
     width: 100%;
     height: 100%;
-    .level_0 , .level_1, .level_2 , .level_3{
+    .level_0 , .level_1, .level_2 , .level_3 , .level_4{
         width: 100%;
         height: 380px;
         p{
@@ -84,6 +88,11 @@ export default {
     .level_3{
         .show_level{
             background-image: url(../../assets/imgs/prize/level_3.png);
+        }
+    }  
+    .level_4{
+        .show_level{
+            background-image: url(../../assets/imgs/prize/lukcy.png);
         }
     }       
     .buttons{

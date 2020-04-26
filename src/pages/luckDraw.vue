@@ -2,7 +2,7 @@
     <div class="prize">
         <div class="prizegogal"  v-if="gogal">
             <div class="content">
-                <prizelevel :level="0"></prizelevel>
+                <prizelevel :level="3"></prizelevel>
             </div>
         </div>
         <div class="prizemiss" v-else>
