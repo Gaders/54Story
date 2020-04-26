@@ -49,73 +49,70 @@ export default {
 <style lang="scss" scoped>
 .card{
     width: 750px;
-    height: 1334px;
-    background-image: url(../assets/imgs/card/newback.png);
+    height: 100vh;
+    background-size: 100% 100%;
     background-position: center 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;  
+    background-repeat:  no-repeat;    
+    background-image: url(../assets/imgs/card/newback.png);
     .content{
         position: absolute;
-        width: 580px;
-        height: 960px;
-        margin-top: 190px;
-        margin-left: 75px;
+        width: 520px;
+        height: 72vh;
+        margin-top: 15vh;
+        margin-left: 105px;
         .num{
             width: 100%;
-            height: 42px;
+            height: 3vh;
             span{
                 display: block;
                 width: 36px;
-                height: 100%;
-                line-height: 60px;
-                margin-left: 520px;
+                line-height: 3vh;
+                margin-left: 460px;
                 text-align: center;
                 color:#70895a;
             }
         }
         .card_show{
             width: 100%;
-            height: 705px;
-            margin-top: 60px;
+            height: 54vh;
+            margin-top: 4vh;
             display: flex;
             justify-content:space-between;
             flex-wrap:wrap;
             div{
-                width: 220px;
-                height: 300px;
-                margin-top: 20px;
+                width: 210px;
+                height: 24vh;
                 background-position: center 0;
                 background-repeat: no-repeat;
                 background-size: cover;
-                -webkit-background-size: cover;
+                -webkit-background-size: 100% 100%;
                 span{
                     display: block;
                     width: 80px;
-                    height: 40px;
+                    height: 4vh;
                     position: relative;
                     text-align: center;
-                    line-height: 40px;
-                    top: 238px;
+                    line-height: 4vh;
+                    top: 18.6vh;
                     left: 125px;
                     color: #ffffff;
                 }                  
             }
         }
         .button_yes , .button_no{
-            width: 430px;
-            height: 100px;
-            margin-top:40px;
+            width: 360px;
+            height: 8vh;
+            margin-top:2vh;
             margin-left: 90px;
-            line-height: 110px;
+            line-height: 7vh;
             background-position: center 0;
             background-repeat: no-repeat;
-            background-size: cover;
-            -webkit-background-size: cover;              
+            background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;              
             p{
                 width: 100px;
                 height: 100%;
-                margin-left: 280px;
+                margin-left: 240px;
                 color: #ffffff;
             }
         }

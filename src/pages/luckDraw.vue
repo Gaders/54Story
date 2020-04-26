@@ -27,24 +27,22 @@ export default {
 <style lang="scss" scoped>
 .prize{
     width: 750px;
-    height: 1334px;
+    height: 100vh;
+    background-size: 100% 100%;
     background-position: center 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;  
+    background-repeat:  no-repeat;    
     .prizegogal , .prizemiss{
         width: 100%;
         height: 100%;
+        background-size: 100% 100%;
         background-position: center 0;
-        background-repeat: no-repeat;
-        background-size: cover;
-        -webkit-background-size: cover; 
+        background-repeat:  no-repeat;    
         .content{
             position: absolute;
             width: 450px;
-            height: 710px;
+            height: 53vh;
             margin-left: 140px;
-            margin-top: 310px; 
+            margin-top: 24vh; 
         }         
     }
     .prizegogal{
