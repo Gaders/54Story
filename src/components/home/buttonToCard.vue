@@ -21,17 +21,16 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-    position: absolute;
-    top: 77vh;
-    left: 120px;
     width: 210px;
     height: 238px;
-    background-size: cover;
+    background-size: 100% 100%;
     background-image: url(../../assets/imgs/home/button.png);
     p {
         color: white;
-        font-size: 18px;
-        margin-left: 16.8vw;
+        position: absolute;
+        right: 60px;
+        top: 0.9vh;
+        font-size: 32px;
     }
 }
 </style>
