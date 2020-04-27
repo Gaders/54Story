@@ -2,14 +2,14 @@
     <div class="card">
         <div class="content">
             <div class="num">
-                <span>5</span>
+                <span>{{numofprize}}</span>
             </div>
             <div class="card_show">
-                <div v-for="item in backgroudlist" :key="item" :class="item">
-                    <span>1</span>
+                <div v-for="(item , index) in backgroudlist" :key="item" :class="item">
+                    <span>{{cardlist[index]}}</span>
                 </div>
             </div>
-            <div class="button_no"  v-if="numofprize === 0">
+            <div class="button_no"  v-if="numofprize == 0">
             </div>
             <div class="button_yes" @click="toPrize" v-else >
                 <p>({{numofprize}})</p>
@@ -34,15 +34,28 @@ export default {
         }
     },
     mounted(){
-        const url = ""
-        axios.post(url).then(res=>{
-            console.log(res)
-        })
+        this.getcardnum()
     },
     methods:{
         toPrize(){
             this.$router.push({path: '/luckDraw'})
+        },
+        getcardnum(){
+             const token = 'eyJjbGFzcyI6IjAyMTExODA0IiwiY29sbGVnZSI6IuWFieeUteW3peeoi+WtpumZoi/ph43luoblm73pmYXljYrlr7zkvZPlrabpmaIgIiwiZXhwIjoiMTAyMzA0MTcxODUiLCJoZWFkSW1nVXJsIjoiaHR0cDovL3RoaXJkd3gucWxvZ28uY24vbW1vcGVuL3ZpXzMyL0FuVU00VW1nRWJ1cnVCVXhxMW5ObVdDbUw2a0FNUFJkbEZYYWNsV2xNS3NPeHQzdzc1c0pOQWJRR2ZlaDRNMWdoWTdiZDl4aWI3bnQ1SHZpYXFSVU1PaHcvMTMyIiwiaWF0IjoiMTU3NTcwMDMwNSIsIm1ham9yIjoiIiwibmlja25hbWUiOiLlpKnkurrkuqbkuZ3oobAiLCJyZWFsTmFtZSI6IumZiOWFiOWLpCAgICAgICAgICIsInJlZElkIjoiZjVjNDA3YTA3YTJmMGE4NzJiZWIzNDkzMWY2MzRjY2Q0NGRlYmU0NCIsInN0dU51bSI6IjIwMTgyMTA2NTMiLCJzdWIiOiJ4YnMifQ==.xQLRI2J/HqLuAb0yQ+5KsuU2yG0tjz3/4zentmXjLCdTtjcTuPFAk0f7JUcpWXUg94WKlOgs0OouIkZFviLIpf/o6cJlszAT8btXZhmjXh4LR7pSf27DJxv5XblObA8p1bdVFYp/EmBKKnphPAAvcEVU1Pr8IFZ8kTZvEKSXp1a4IKJR4HxQGeDIryms2ydGM2CqTDR4LluXD/0H8y2O0G+GcQaexwzczZbGB1sjeYR0DN2tbp3KQT8Qxb516otWgeIg5IWOxRVD9HKJtdIVrxR1OORKus0wEjx2D/Dl0IEqsiHW1rDfQS8r4q2s3/vaIs9QObs3iKYU+IDMmwu7Sg=='
+             const url = `http://i9ph3k.natappfree.cc/card?token=${token}`
+             const that = this
+             axios.post(url).then(res=>{
+                 const {card} = res.data
+                 that.cardlist[0] = card.county
+                 that.cardlist[1] = card.process
+                 that.cardlist[2] = card.democracy
+                 that.cardlist[3] = card.science 
+                 that.numofprize =  Math.min.apply(null, that.cardlist)
+                 console.log(that.cardlist)
+                 console.log(res)
+             })          
         }
+
     }
 }
 </script>
@@ -66,8 +79,9 @@ export default {
             span{
                 display: block;
                 width: 36px;
-                line-height: 3vh;
-                margin-left: 460px;
+                font-size: 3vh;
+                line-height: 3.5vh;
+                margin-left: 465px;
                 text-align: center;
                 color:#70895a;
             }
@@ -80,7 +94,7 @@ export default {
             justify-content:space-between;
             flex-wrap:wrap;
             div{
-                width: 210px;
+                width: 220px;
                 height: 24vh;
                 background-position: center 0;
                 background-repeat: no-repeat;
@@ -93,7 +107,7 @@ export default {
                     position: relative;
                     text-align: center;
                     line-height: 4vh;
-                    top: 18.6vh;
+                    top: 18.8vh;
                     left: 125px;
                     color: #ffffff;
                 }                  

@@ -21,7 +21,7 @@
             <div class="show_level"></div>
         </div>                    
         <div class="buttons">
-            <div class="goon"></div>
+            <div class="goon" @click="tocard"></div>
             <div class="read" @click="toHome"></div>
         </div>
     </div>
@@ -41,6 +41,9 @@ export default {
     methods:{
         toHome(){
             this.$router.push({path: '/'})
+        },
+        tocard(){
+            this.$router.push({path: '/card'})
         }
     }
 }
