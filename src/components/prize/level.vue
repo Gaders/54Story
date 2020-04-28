@@ -21,7 +21,7 @@
             <div class="show_level"></div>
         </div>                    
         <div class="buttons">
-            <div class="goon"></div>
+            <div class="goon" @click="tocard"></div>
             <div class="read" @click="toHome"></div>
         </div>
     </div>
@@ -41,6 +41,9 @@ export default {
     methods:{
         toHome(){
             this.$router.push({path: '/'})
+        },
+        tocard(){
+            this.$router.push({path: '/card'})
         }
     }
 }
@@ -51,7 +54,7 @@ export default {
     height: 100%;
     .level_0 , .level_1, .level_2 , .level_3 , .level_4{
         width: 100%;
-        height: 380px;
+        height: 31vh;
         p{
             font-size: 45px;
             text-align: center;
@@ -60,12 +63,12 @@ export default {
         }
         .show_level{
             width: 100%;
-            height: 260px;
+            height: 21vh;
             margin-top: 50px;
             background-position: center 0;
             background-repeat: no-repeat;
             background-size: cover;
-            -webkit-background-size: cover;       
+            -webkit-background-size: cover;    
         }
     }
     .level_0{
@@ -97,20 +100,21 @@ export default {
     }       
     .buttons{
         width: 100%;
-        height: 330px;
+        height: 21vh;
         .goon , .read{
-            width: 100%;
-            height: 120px;
+            width: 360px;
+            height:9vh;
             background-position: center 0;
             background-repeat: no-repeat;
-            background-size: cover;
-            -webkit-background-size: cover;             
+            background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;  
+            margin: auto auto;           
         }
         .goon{
             background-image: url(../../assets/imgs/prize/goon.png);
         }
         .read{
-            margin-top: 50px;
+            margin-top: 2vh;
             background-image: url(../../assets/imgs/prize/red.png);
         }
     }
