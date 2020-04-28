@@ -15,6 +15,11 @@
             </Slide>
         </Swiper>
     </div>
+    <div class="info">
+        <p>
+            不到25岁的他们，将青春撒于狼牙山，献于祖国。的的他们视死如归，在最后时刻任然坚守，用石块还击，他们宁死不屈，毁掉枪支，义无反顾，纵身跳下数十丈深的悬崖25岁的他们，将青春撒于狼牙山，献于祖国。们视死如归，在最后时刻任然坚守，用石块还击，他们宁死不屈，毁掉枪支不到25岁的他们，将青春撒于狼牙山，献于祖国。的的他们视死如归，在最后时刻任然坚守，用石块还击，他们宁死不屈，毁掉枪支，义无反顾，纵身跳下数十丈深的悬崖25岁的他们，将青春撒于狼牙山，献于祖国。们视死如归，在最后时刻任然坚守，用石块还击，他们宁死不屈，毁掉枪支
+        </p>
+    </div>
 </div>
 </template>
 <script>
@@ -48,6 +53,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 .storyInfoAll {
     width: 750px;
     height: 500px;
@@ -55,23 +61,23 @@ export default {
     z-index: 1;
 }
 .storyInfo {
-    width: 500px;
-    height: 500px;
+    width: 554px;
+    height: 438px;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
-    top: 200px;
+    top: 6.05vh;
 }
 .img {
-    width: 500px;
-    height: 500px;
+    width: 554px;
+    height: 438px;
     background-size: 100% 100%;
-    background-image: url(../../assets/imgs/story/aiguo.png);
+    background-image: url(../../assets/imgs/story/story1-1.png);
 }
 .arrowL {
     position: absolute;
-    left: 50px;
-    top: 362px;
+    left: 40px;
+    top: 22.861vh;
     background-size: 100% 100%;
     width: 49px;
     height: 64px;
@@ -79,11 +85,28 @@ export default {
 }
 .arrowR {
     position: absolute;
-    right: 50px;
-    top: 362px;
+    right: 40px;
+    top: 23.26vh;
     background-size: 100% 100%;
     width: 49px;
     height: 64px;
     background-image: url(../../assets/imgs/story/arrowR.png);
+}
+.info {
+    position: absolute;
+    top: 45vh;
+    width: 750px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        display: block;
+        margin: 0 auto;
+        width: 554px;
+        line-height: 30px;
+        font-family: 'huakang';
+        color: #862526;
+    }
 }
 </style>

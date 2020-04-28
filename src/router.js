@@ -3,7 +3,7 @@ import Router from 'vue-router'  //引入vue-router
 import home from './pages/home.vue' 
 import card from './pages/card.vue'
 import luckDraw from './pages/luckDraw.vue'
-import story from './pages/story.vue'
+import storyFrist from './pages/storyFrist.vue'
 
  
 Vue.use(Router)  //Vue全局使用Router
@@ -26,9 +26,9 @@ export default new Router({
         component: luckDraw  
     },
     {                   
-        path: '/story',         
-        name: 'story',    
-        component: story   
+        path: '/storyFrist',         
+        name: 'storyFrist',    
+        component: storyFrist   
     },
   ]
 })

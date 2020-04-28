@@ -1,8 +1,7 @@
 <template>
     <div class="getCard">
         <div class="shadow"></div>
-        <div class="card">{{cardId}}</div>
-        
+        <div class="card" :class="{'card1': cardId == 1, 'card2': cardId == 2, 'card3': cardId == 3, 'card4': cardId == 4,}"></div>
         <div class="buttonAfter" @click="shadowClose"></div>
     </div>
 </template>
@@ -15,12 +14,11 @@ export default {
     },
     data() {
         return {
-
+            card: ['爱国', '进步', '科学', '民主']
         }
     },    
     methods: {
         shadowClose() {
-            alert("你获得了" + this.cardId + "卡片")
             this.$emit('shadowClose', false)
         }
     }
@@ -49,8 +47,19 @@ export default {
         width:308px;
         height: 410px;
         background-size: 100% 100%;
-        background-image: url(../../assets/imgs/story/aiguo.png);
     };
+    .card1 {
+        background-image: url(../../assets/imgs/story/aiguo.png);
+    }
+    .card2 {
+        background-image: url(../../assets/imgs/story/jinbu.png);
+    }
+    .card3 {
+        background-image: url(../../assets/imgs/story/kexue.png);
+    }
+    .card4 {
+        background-image: url(../../assets/imgs/story/minzhu.png);
+    }
     .buttonAfter {
         position: relative;
         z-index: 2;
