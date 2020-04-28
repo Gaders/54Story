@@ -5,8 +5,8 @@
                 <span>{{numofprize}}</span>
             </div>
             <div class="card_show">
-                <div v-for="(item , index) in backgroudlist" :key="item" :class="item">
-                    <span>{{cardlist[index]}}</span>
+                <div v-for="(item) in backgroudlist" :key="item" :class="item">
+                    <span>{{cardlist[item]}}</span>
                 </div>
             </div>
             <div class="button_no"  v-if="numofprize == 0">
@@ -29,8 +29,13 @@ export default {
                 "mingzu",
                 "kexue"
             ],
-            cardlist:[],
-            numofprize:1,
+            cardlist:{
+                "aiguo":0,
+                "jinbu":0,
+                "mingzu":0,
+                "kexue":0
+            },
+            numofprize:0,
         }
     },
     mounted(){
@@ -38,21 +43,26 @@ export default {
     },
     methods:{
         toPrize(){
-            this.$router.push({path: '/luckDraw'})
+             const token = 'eyJjbGFzcyI6IjAyMTExODA0IiwiY29sbGVnZSI6IuWFieeUteW3peeoi+WtpumZoi/ph43luoblm73pmYXljYrlr7zkvZPlrabpmaIgIiwiZXhwIjoiMTAyMzA0MTcxODUiLCJoZWFkSW1nVXJsIjoiaHR0cDovL3RoaXJkd3gucWxvZ28uY24vbW1vcGVuL3ZpXzMyL0FuVU00VW1nRWJ1cnVCVXhxMW5ObVdDbUw2a0FNUFJkbEZYYWNsV2xNS3NPeHQzdzc1c0pOQWJRR2ZlaDRNMWdoWTdiZDl4aWI3bnQ1SHZpYXFSVU1PaHcvMTMyIiwiaWF0IjoiMTU3NTcwMDMwNSIsIm1ham9yIjoiIiwibmlja25hbWUiOiLlpKnkurrkuqbkuZ3oobAiLCJyZWFsTmFtZSI6IumZiOWFiOWLpCAgICAgICAgICIsInJlZElkIjoiZjVjNDA3YTA3YTJmMGE4NzJiZWIzNDkzMWY2MzRjY2Q0NGRlYmU0NCIsInN0dU51bSI6IjIwMTgyMTA2NTMiLCJzdWIiOiJ4YnMifQ==.xQLRI2J/HqLuAb0yQ+5KsuU2yG0tjz3/4zentmXjLCdTtjcTuPFAk0f7JUcpWXUg94WKlOgs0OouIkZFviLIpf/o6cJlszAT8btXZhmjXh4LR7pSf27DJxv5XblObA8p1bdVFYp/EmBKKnphPAAvcEVU1Pr8IFZ8kTZvEKSXp1a4IKJR4HxQGeDIryms2ydGM2CqTDR4LluXD/0H8y2O0G+GcQaexwzczZbGB1sjeYR0DN2tbp3KQT8Qxb516otWgeIg5IWOxRVD9HKJtdIVrxR1OORKus0wEjx2D/Dl0IEqsiHW1rDfQS8r4q2s3/vaIs9QObs3iKYU+IDMmwu7Sg=='
+             const url = `http://127.0.0.1:8000/prize?token=${token}`
+             const that = this
+             axios.post(url).then(res=>{
+             const prize = res.data.level
+             that.$router.push({path: `/luckDraw?level=${prize}`})
+             })        
         },
         getcardnum(){
              const token = 'eyJjbGFzcyI6IjAyMTExODA0IiwiY29sbGVnZSI6IuWFieeUteW3peeoi+WtpumZoi/ph43luoblm73pmYXljYrlr7zkvZPlrabpmaIgIiwiZXhwIjoiMTAyMzA0MTcxODUiLCJoZWFkSW1nVXJsIjoiaHR0cDovL3RoaXJkd3gucWxvZ28uY24vbW1vcGVuL3ZpXzMyL0FuVU00VW1nRWJ1cnVCVXhxMW5ObVdDbUw2a0FNUFJkbEZYYWNsV2xNS3NPeHQzdzc1c0pOQWJRR2ZlaDRNMWdoWTdiZDl4aWI3bnQ1SHZpYXFSVU1PaHcvMTMyIiwiaWF0IjoiMTU3NTcwMDMwNSIsIm1ham9yIjoiIiwibmlja25hbWUiOiLlpKnkurrkuqbkuZ3oobAiLCJyZWFsTmFtZSI6IumZiOWFiOWLpCAgICAgICAgICIsInJlZElkIjoiZjVjNDA3YTA3YTJmMGE4NzJiZWIzNDkzMWY2MzRjY2Q0NGRlYmU0NCIsInN0dU51bSI6IjIwMTgyMTA2NTMiLCJzdWIiOiJ4YnMifQ==.xQLRI2J/HqLuAb0yQ+5KsuU2yG0tjz3/4zentmXjLCdTtjcTuPFAk0f7JUcpWXUg94WKlOgs0OouIkZFviLIpf/o6cJlszAT8btXZhmjXh4LR7pSf27DJxv5XblObA8p1bdVFYp/EmBKKnphPAAvcEVU1Pr8IFZ8kTZvEKSXp1a4IKJR4HxQGeDIryms2ydGM2CqTDR4LluXD/0H8y2O0G+GcQaexwzczZbGB1sjeYR0DN2tbp3KQT8Qxb516otWgeIg5IWOxRVD9HKJtdIVrxR1OORKus0wEjx2D/Dl0IEqsiHW1rDfQS8r4q2s3/vaIs9QObs3iKYU+IDMmwu7Sg=='
-             const url = `http://i9ph3k.natappfree.cc/card?token=${token}`
+             const url = `http://127.0.0.1:8000/card?token=${token}`
              const that = this
              axios.post(url).then(res=>{
                  const {card} = res.data
-                 that.cardlist[0] = card.county
-                 that.cardlist[1] = card.process
-                 that.cardlist[2] = card.democracy
-                 that.cardlist[3] = card.science 
-                 that.numofprize =  Math.min.apply(null, that.cardlist)
-                 console.log(that.cardlist)
-                 console.log(res)
+                 that.cardlist[that.backgroudlist[0]] = card.county
+                 that.cardlist[that.backgroudlist[1]] = card.process
+                 that.cardlist[that.backgroudlist[2]] = card.democracy
+                 that.cardlist[that.backgroudlist[3]] = card.science 
+                 const cardnum = [card.county , card.process ,card.democracy , card.science]
+                 that.numofprize =  Math.min.apply(null,cardnum)
              })          
         }
 
@@ -67,6 +77,7 @@ export default {
     background-position: center 0;
     background-repeat:  no-repeat;    
     background-image: url(../assets/imgs/card/newback.png);
+    font-family: 'STHupo';
     .content{
         position: absolute;
         width: 520px;
@@ -118,7 +129,7 @@ export default {
             height: 8vh;
             margin-top:2vh;
             margin-left: 90px;
-            line-height: 7vh;
+            line-height: 8vh;
             background-position: center 0;
             background-repeat: no-repeat;
             background-size: 100% 100%;

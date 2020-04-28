@@ -1,22 +1,22 @@
 <template>
     <div class="level">
-        <div class="level_0" v-if="level === 0">
+        <div class="level_0" v-if="level == 0">
             <p>太可惜了</p>
             <div class="show_level"></div>
         </div>
-        <div class="level_1" v-else-if="level === 1">
+        <div class="level_1" v-else-if="level == 1">
             <p>恭喜你！获得</p>
             <div class="show_level"></div>
         </div>
-        <div class="level_2" v-else-if="level === 2">
+        <div class="level_2" v-else-if="level == 2">
             <p>恭喜你！获得</p>
             <div class="show_level"></div>
         </div>
-        <div class="level_3" v-else-if="level === 3">
+        <div class="level_3" v-else-if="level == 3">
             <p>恭喜你！获得</p>
             <div class="show_level"></div>
         </div>
-        <div class="level_4" v-else-if="level === 4">
+        <div class="level_4" v-else-if="level == 4">
             <p>恭喜你！获得</p>
             <div class="show_level"></div>
         </div>                    
@@ -34,7 +34,6 @@ export default {
     },
     props:{
         level:{
-            type:Number,
             default:0
         }
     },
