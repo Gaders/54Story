@@ -4,7 +4,7 @@
             <div class="num">
                 <span>{{numofprize}}</span>
             </div>
-            <div class="card_show">
+            <div :class="isIphone ? ['card_show' ,'ipone5'] :  ['card_show','iponex']">
                 <div v-for="(item) in backgroudlist" :key="item" :class="item">
                     <span>{{cardlist[item]}}</span>
                 </div>
@@ -19,6 +19,7 @@
 </template>
 <script>
 import axios from "axios"
+import {isIphoneX}  from "../api/test"
 export default {
     name:'card',
     data(){
@@ -36,15 +37,17 @@ export default {
                 "kexue":0
             },
             numofprize:0,
+            isIphone:false
         }
     },
     mounted(){
         this.getcardnum()
+        this.isIphone = !isIphoneX()
     },
     methods:{
         toPrize(){
              const token = 'eyJjbGFzcyI6IjAyMTExODA0IiwiY29sbGVnZSI6IuWFieeUteW3peeoi+WtpumZoi/ph43luoblm73pmYXljYrlr7zkvZPlrabpmaIgIiwiZXhwIjoiMTAyMzA0MTcxODUiLCJoZWFkSW1nVXJsIjoiaHR0cDovL3RoaXJkd3gucWxvZ28uY24vbW1vcGVuL3ZpXzMyL0FuVU00VW1nRWJ1cnVCVXhxMW5ObVdDbUw2a0FNUFJkbEZYYWNsV2xNS3NPeHQzdzc1c0pOQWJRR2ZlaDRNMWdoWTdiZDl4aWI3bnQ1SHZpYXFSVU1PaHcvMTMyIiwiaWF0IjoiMTU3NTcwMDMwNSIsIm1ham9yIjoiIiwibmlja25hbWUiOiLlpKnkurrkuqbkuZ3oobAiLCJyZWFsTmFtZSI6IumZiOWFiOWLpCAgICAgICAgICIsInJlZElkIjoiZjVjNDA3YTA3YTJmMGE4NzJiZWIzNDkzMWY2MzRjY2Q0NGRlYmU0NCIsInN0dU51bSI6IjIwMTgyMTA2NTMiLCJzdWIiOiJ4YnMifQ==.xQLRI2J/HqLuAb0yQ+5KsuU2yG0tjz3/4zentmXjLCdTtjcTuPFAk0f7JUcpWXUg94WKlOgs0OouIkZFviLIpf/o6cJlszAT8btXZhmjXh4LR7pSf27DJxv5XblObA8p1bdVFYp/EmBKKnphPAAvcEVU1Pr8IFZ8kTZvEKSXp1a4IKJR4HxQGeDIryms2ydGM2CqTDR4LluXD/0H8y2O0G+GcQaexwzczZbGB1sjeYR0DN2tbp3KQT8Qxb516otWgeIg5IWOxRVD9HKJtdIVrxR1OORKus0wEjx2D/Dl0IEqsiHW1rDfQS8r4q2s3/vaIs9QObs3iKYU+IDMmwu7Sg=='
-             const url = `http://127.0.0.1:8000/prize?token=${token}`
+             const url = `http://127.0.0.1:8001/prize?token=${token}`
              const that = this
              axios.post(url).then(res=>{
              const prize = res.data.level
@@ -53,7 +56,7 @@ export default {
         },
         getcardnum(){
              const token = 'eyJjbGFzcyI6IjAyMTExODA0IiwiY29sbGVnZSI6IuWFieeUteW3peeoi+WtpumZoi/ph43luoblm73pmYXljYrlr7zkvZPlrabpmaIgIiwiZXhwIjoiMTAyMzA0MTcxODUiLCJoZWFkSW1nVXJsIjoiaHR0cDovL3RoaXJkd3gucWxvZ28uY24vbW1vcGVuL3ZpXzMyL0FuVU00VW1nRWJ1cnVCVXhxMW5ObVdDbUw2a0FNUFJkbEZYYWNsV2xNS3NPeHQzdzc1c0pOQWJRR2ZlaDRNMWdoWTdiZDl4aWI3bnQ1SHZpYXFSVU1PaHcvMTMyIiwiaWF0IjoiMTU3NTcwMDMwNSIsIm1ham9yIjoiIiwibmlja25hbWUiOiLlpKnkurrkuqbkuZ3oobAiLCJyZWFsTmFtZSI6IumZiOWFiOWLpCAgICAgICAgICIsInJlZElkIjoiZjVjNDA3YTA3YTJmMGE4NzJiZWIzNDkzMWY2MzRjY2Q0NGRlYmU0NCIsInN0dU51bSI6IjIwMTgyMTA2NTMiLCJzdWIiOiJ4YnMifQ==.xQLRI2J/HqLuAb0yQ+5KsuU2yG0tjz3/4zentmXjLCdTtjcTuPFAk0f7JUcpWXUg94WKlOgs0OouIkZFviLIpf/o6cJlszAT8btXZhmjXh4LR7pSf27DJxv5XblObA8p1bdVFYp/EmBKKnphPAAvcEVU1Pr8IFZ8kTZvEKSXp1a4IKJR4HxQGeDIryms2ydGM2CqTDR4LluXD/0H8y2O0G+GcQaexwzczZbGB1sjeYR0DN2tbp3KQT8Qxb516otWgeIg5IWOxRVD9HKJtdIVrxR1OORKus0wEjx2D/Dl0IEqsiHW1rDfQS8r4q2s3/vaIs9QObs3iKYU+IDMmwu7Sg=='
-             const url = `http://127.0.0.1:8000/card?token=${token}`
+             const url = `http://127.0.0.1:8001/card?token=${token}`
              const that = this
              axios.post(url).then(res=>{
                  const {card} = res.data
@@ -91,10 +94,30 @@ export default {
                 display: block;
                 width: 36px;
                 font-size: 3vh;
-                line-height: 3.5vh;
+                line-height: 4vh;
                 margin-left: 465px;
                 text-align: center;
                 color:#70895a;
+            }
+        }
+        .ipone5{
+            div{
+                 width: 210px;
+                height: 24vh;  
+                span{
+                    top:18.8vh;
+                    left: 120px;                
+                    }             
+            }
+        }
+        .iponex{
+            div{
+                width: 225px;
+                height: 23vh;
+                span{
+                    top: 18vh;
+                    left: 130px;                
+                }             
             }
         }
         .card_show{
@@ -105,22 +128,19 @@ export default {
             justify-content:space-between;
             flex-wrap:wrap;
             div{
-                width: 220px;
-                height: 24vh;
                 background-position: center 0;
                 background-repeat: no-repeat;
                 background-size: cover;
-                -webkit-background-size: 100% 100%;
+                -webkit-background-size:100% 100%;
                 span{
+                    font-size: 2.5vh;
                     display: block;
                     width: 80px;
                     height: 4vh;
                     position: relative;
                     text-align: center;
                     line-height: 4vh;
-                    top: 18.8vh;
-                    left: 125px;
-                    color: #ffffff;
+                    color: #efe6e0;
                 }                  
             }
         }
@@ -137,8 +157,9 @@ export default {
             p{
                 width: 100px;
                 height: 100%;
-                margin-left: 240px;
-                color: #ffffff;
+                margin-left: 252px;
+                color: #efe6e0;
+                
             }
         }
         .button_yes{

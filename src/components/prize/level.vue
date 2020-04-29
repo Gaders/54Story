@@ -53,21 +53,22 @@ export default {
     height: 100%;
     .level_0 , .level_1, .level_2 , .level_3 , .level_4{
         width: 100%;
-        height: 31vh;
+        height: 29vh;
         p{
-            font-size: 45px;
+            font-size: 46px;
             text-align: center;
             line-height: 1.5em;
             color: #933424;
+            font-weight: 600;
         }
         .show_level{
             width: 100%;
             height: 21vh;
-            margin-top: 50px;
+            margin-top:2.5vh;
             background-position: center 0;
             background-repeat: no-repeat;
             background-size: cover;
-            -webkit-background-size: cover;    
+            -webkit-background-size: 100% 100%;    
         }
     }
     .level_0{
@@ -100,9 +101,10 @@ export default {
     .buttons{
         width: 100%;
         height: 21vh;
+        // margin-top:2.5vh;
         .goon , .read{
             width: 360px;
-            height:9vh;
+            height:8vh;
             background-position: center 0;
             background-repeat: no-repeat;
             background-size: 100% 100%;
@@ -113,7 +115,7 @@ export default {
             background-image: url(../../assets/imgs/prize/goon.png);
         }
         .read{
-            margin-top: 2vh;
+            margin-top: 2.5vh;
             background-image: url(../../assets/imgs/prize/red.png);
         }
     }
