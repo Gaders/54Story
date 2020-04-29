@@ -36,7 +36,7 @@ export default {
             this.$router.push({path: 'story' + data})
         }
     },
-    /* beforeCreate() {
+ /*    beforeCreate() {
         var token = document.location.href.split('/?token=')[1];
         if (token && token.length) {
             token = token.split('#/')[0];

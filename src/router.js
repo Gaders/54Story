@@ -4,8 +4,8 @@ import home from './pages/home.vue'
 import card from './pages/card.vue'
 import luckDraw from './pages/luckDraw.vue'
 import storyFrist from './pages/storyFrist.vue'
-
- 
+import storySecond from './pages/storySecond.vue'
+import storyThird from './pages/storyThird.vue'
 Vue.use(Router)  //Vue全局使用Router
  
 export default new Router({
@@ -29,6 +29,16 @@ export default new Router({
         path: '/storyFrist',         
         name: 'storyFrist',    
         component: storyFrist   
+    },
+    {                   
+        path: '/storySecond',         
+        name: 'storySecond',    
+        component: storySecond
+    },
+    {                   
+        path: '/storyThird',         
+        name: 'storyThird',    
+        component: storyThird   
     },
   ]
 })

@@ -18,7 +18,7 @@
 <script>
 import {updataCard, /*  getStoryNum, storyNum1  */} from '../api/test'
 import getCard from '../components/story/getCard'
-import storyInfo from '../components/story/storyInfo'
+import storyInfo from '../components/story/storyInfo2'
 
 export default {
     name: 'story',
@@ -39,7 +39,7 @@ export default {
             if(this.time == -1) {
                 this.getCardWindow = true
                 this.cardId = Math.floor(Math.random()*4) + 1
-                updataCard(1, this.currentPage + 1, this.cardId) 
+                updataCard(2, this.currentPage + 1, this.cardId) 
                 this.StoryNum[this.currentPage] = 1
             }  
         },
