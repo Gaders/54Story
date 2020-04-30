@@ -9,7 +9,7 @@
                     <span>{{cardlist[item]}}</span>
                 </div>
             </div>
-            <div class="button_no"  v-if="numofprize == 0">
+            <div class="button_no"  v-if="numofprize == buttonactive">
             </div>
             <div class="button_yes" @click="toPrize" v-else >
                 <p>({{numofprize}})</p>
@@ -38,6 +38,7 @@ export default {
             },
             numofprize:0,
             isIphone:false,
+            buttonactive:false,
             url:'http://127.0.0.1:8001'
         }
     },
@@ -67,6 +68,9 @@ export default {
                  that.cardlist[that.backgroudlist[3]] = card.science 
                  const cardnum = [card.county , card.process ,card.democracy , card.science]
                  that.numofprize =  Math.min.apply(null,cardnum)
+                 const dealtime = new Date('2020-05-05').getTime()
+                 const nowtime = new Date().getTime()
+                 that.buttonactive = (that.numofprize > 0) && (nowtime > dealtime)
              })          
         }
 
