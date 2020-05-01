@@ -19,6 +19,7 @@
 </template>
 <script>
 import axios from "axios"
+import Qs from 'qs'
 import {isIphoneX}  from "../api/test"
 export default {
     name:'card',
@@ -39,7 +40,7 @@ export default {
             numofprize:0,
             isIphone:false,
             buttonactive:false,
-            url:'http://127.0.0.1:8001'
+            url:'http://c6a7ui.natappfree.cc'
         }
     },
     mounted(){
@@ -49,18 +50,24 @@ export default {
     methods:{
         toPrize(){
              const token = localStorage.getItem('token')
-             const url = `${this.url}/prize?token=${token}`
+             const url = `${this.url}/prize`
              const that = this
-             axios.post(url).then(res=>{
+             axios.post(url,
+              Qs.stringify({
+                 token
+             })).then(res=>{
              const prize = res.data.level
              that.$router.push({path: `/luckDraw?level=${prize}`})
              })        
         },
         getcardnum(){
              const token = localStorage.getItem('token')
-             const url = `${this.url}/card?token=${token}`
+             const url = `${this.url}/card`
              const that = this
-             axios.post(url).then(res=>{
+             axios.post(url ,
+             Qs.stringify({
+                 token
+             })).then(res=>{
                  const {card} = res.data
                  that.cardlist[that.backgroudlist[0]] = card.county
                  that.cardlist[that.backgroudlist[1]] = card.process
